@@ -92,7 +92,7 @@ class AppSafe extends Application with Context {
     // ˅
     var clockString = "Current Time : "
     if (hour < 10) {
-      clockString += f"0$hour:00"
+      clockString += f"0${hour.toString()}:00"
     }
     else {
       clockString += f"${hour.toString()}:00"
