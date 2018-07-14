@@ -20,7 +20,7 @@ object NightState extends State {
   // Use a safe
   override def useSafe(context: Context) = {
     // ˅
-    context.callSecurityGuardsRoom("Emergency: Use a safe at night！")
+    context.callSecurityGuardsRoom("Emergency: Use a safe at night!")
     // ˄
   }
 
