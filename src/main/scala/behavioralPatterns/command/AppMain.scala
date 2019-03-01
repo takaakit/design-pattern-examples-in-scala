@@ -20,7 +20,7 @@ class AppMain extends Application {
   // Painting history
   private val history: HistoryCommand = new HistoryCommand()
 
-  private val canvas: PaintingCanvas = new PaintingCanvas(400.0, 300.0, history)
+  private val canvas: PaintingCanvas = new PaintingCanvas(400.0, 300.0)
 
   override def start(primaryStage: Stage) = {
     // ˅
