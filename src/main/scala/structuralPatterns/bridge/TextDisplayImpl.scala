@@ -22,7 +22,7 @@ class TextDisplayImpl(_text: String) extends DisplayImpl {
 
   override def implWrite() = {
     // ˅
-    println(f":$text:")                // Enclose a text with "|" and display it.
+    println(f":$text:")                // Enclose a text with ":" and display it.
     // ˄
   }
 
@@ -34,11 +34,11 @@ class TextDisplayImpl(_text: String) extends DisplayImpl {
 
   private def printLine() = {
     // ˅
-    print("*")                          // Display "+" mark at the beginning of a frame.
-    for (i <- 0 until width) {          // Display "-" for the number of "width".
+    print("*")                          // Display "*" mark at the beginning of a frame.
+    for (i <- 0 until width) {          // Display "." for the number of "width".
       print(".")
     }
-    print("*\n")                        // Display "+" mark at the end of a frame.
+    print("*\n")                        // Display "*" mark at the end of a frame.
     // ˄
   }
 
