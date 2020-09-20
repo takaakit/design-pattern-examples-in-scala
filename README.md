@@ -58,8 +58,11 @@ Installation
 * Download the plug-in from [M PLUS plug-in site](https://sites.google.com/view/m-plus-plugin/download), and install.  
   **Use ver.2.0 or higher.**
 
-**Development Environment for Scala**
-* Prepare an arbitrary development environment for Scala (e.g. [IntelliJ](https://www.jetbrains.com/idea/download/)).
+**Development Environment for Scala and JavaFX**
+* Prepare an arbitrary development environment for Scala and JavaFX. If you don't want to install JavaFX, you need to remove the following packages that use JavaFX to prevent build errors.
+  - src/main/scala/behavioralPatterns/command
+  - src/main/scala/behavioralPatterns/mediator
+  - src/main/scala/behavioralPatterns/state
 
 Usage
 -----
