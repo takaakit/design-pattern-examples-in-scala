@@ -8,7 +8,7 @@ trait Command {
   
   // ˄
 
-  def execute()
+  def execute(): Unit
 
   // ˅
   

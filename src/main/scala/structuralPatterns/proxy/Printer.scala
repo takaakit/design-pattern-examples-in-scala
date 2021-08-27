@@ -8,7 +8,11 @@ trait Printer {
   
   // ˄
 
-  def output(content: String)
+  def getName(): String
+
+  def changeName(name: String): Unit
+
+  def output(content: String): Unit
 
   // ˅
   

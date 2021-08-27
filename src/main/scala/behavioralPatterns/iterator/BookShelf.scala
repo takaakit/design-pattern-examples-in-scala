@@ -24,7 +24,7 @@ class BookShelf(maxsize: Int) extends Aggregate {
     // ˄
   }
 
-  def add(book: Book) = {
+  def add(book: Book): Unit = {
     // ˅
     books.update(numberOfBooks, book)
     numberOfBooks += 1

@@ -8,9 +8,9 @@ trait Mediator {
   
   // ˄
 
-  def colleagueChanged()
+  def colleagueChanged(): Unit
 
-  def createColleagues()
+  def createColleagues(): Unit
 
   // ˅
   

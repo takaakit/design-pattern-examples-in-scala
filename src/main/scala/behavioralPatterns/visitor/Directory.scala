@@ -10,36 +10,42 @@ class Directory(_name: String) extends FileSystemElement {
   
   // ˄
 
-  // Directory name
-  override val name: String = _name
+  private val name: String = _name
 
   // Collection of elements
   private var elements: Seq[FileSystemElement] = Seq[FileSystemElement]()
 
-  override def size(): Int = {
+  // Directory name
+  override def getName(): String = {
+    // ˅
+    name
+    // ˄
+  }
+
+  // Directory size
+  override def getSize(): Int = {
     // ˅
     var size = 0
-    elements.foreach(element => size += element.size)
+    elements.foreach(element => size += element.getSize())
     size
     // ˄
   }
 
   // Accept a visitor
-  override def accept(visitor: Visitor) = {
+  override def accept(visitor: Visitor): Unit = {
     // ˅
     visitor.visit(this)
     // ˄
   }
 
-  // Add an entry
-  def add(element: FileSystemElement): FileSystemElement = {
+  // Add an element
+  def add(element: FileSystemElement): Unit = {
     // ˅
     elements = elements :+ element
-    this
     // ˄
   }
 
-  // Create a iterator
+  // Get the iterator
   def iterator(): Iterator[FileSystemElement] = {
     // ˅
     elements.iterator

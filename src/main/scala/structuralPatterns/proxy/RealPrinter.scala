@@ -3,26 +3,39 @@ package structuralPatterns.proxy
 
 // ˄
 
-class RealPrinter(name: String) extends Printer {
+class RealPrinter(_name: String) extends Printer {
   // ˅
-  heavyTask(f"Creating an instance($name) of the Printer")
+
   // ˄
 
-  var printerName: String = name
+  var name: String = _name
 
-  // Display a content with the name
-  override def output(content: String) = {
+  def getName(): String = {
     // ˅
-    println(f"=== $printerName ===")
+    this.name
+    // ˄
+  }
+
+  def changeName(name: String): Unit = {
+    // ˅
+    this.name = name
+    // ˄
+  }
+
+  override def output(content: String): Unit = {
+    // ˅
+    println("==========")
     println(content)
+    println("Printed by " + name)
+    println("==========")
     // ˄
   }
 
   // Heavy task (Please think so...)
-  private def heavyTask(message: String) = {
+  private def heavyTask(message: String): Unit = {
     // ˅
     print(message)
-    for (i <- 0 to 10) {
+    for (i <- 0 until 10) {
       Thread.sleep(500)
       print(".")
     }
@@ -31,7 +44,7 @@ class RealPrinter(name: String) extends Printer {
   }
 
   // ˅
-  
+  heavyTask(f"Creating an instance($name) of the Printer")
   // ˄
 }
 

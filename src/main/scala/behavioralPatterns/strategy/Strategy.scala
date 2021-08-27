@@ -3,14 +3,16 @@ package behavioralPatterns.strategy
 
 // ˄
 
+// Show a hand signal.
 trait Strategy {
   // ˅
   
   // ˄
 
-  def nextHand(): Hand
+  def showHandSignal(): HandSignal
 
-  def learn(win: Boolean)
+  // Notify a game result.
+  def notifyGameResult(result: GameResultType, ownHand: HandSignal, opponentsHand: HandSignal): Unit
 
   // ˅
   

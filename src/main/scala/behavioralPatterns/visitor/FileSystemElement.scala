@@ -8,13 +8,13 @@ abstract class FileSystemElement extends Element {
   
   // ˄
 
-  val name: String
+  def getName(): String
 
-  def size(): Int
+  def getSize(): Int
 
   override def toString(): String = {
     // ˅
-    f"$name ($size)"
+    f"${getName()} (${getSize()})"
     // ˄
   }
 

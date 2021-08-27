@@ -18,7 +18,7 @@ abstract class Supporter(_name: String) {
   // Troubles are sent around.
   def support(trouble: Trouble): Unit = {
     // ˅
-    if (handle(trouble)) {
+    if (canHandle(trouble)) {
       supported(trouble)
     }
     else if (next != null) {
@@ -33,7 +33,7 @@ abstract class Supporter(_name: String) {
   // Set a next supporter.
   def setNext(_next: Supporter): Supporter = {
     // ˅
-    this.next = _next
+    next = _next
     next
     // ˄
   }
@@ -44,19 +44,19 @@ abstract class Supporter(_name: String) {
     // ˄
   }
 
-  protected def handle(trouble: Trouble): Boolean
+  protected def canHandle(trouble: Trouble): Boolean
 
   // Trouble was supported.
   private def supported(trouble: Trouble): Unit = {
     // ˅
-    println(f"${trouble.toString()} was handled by $this.")
+    println(f"$trouble was handled by $this.")
     // ˄
   }
 
   // Trouble was unsupported.
   private def unsupported(trouble: Trouble): Unit = {
     // ˅
-    println(f"${trouble.toString()} was not handled.")
+    println(f"$trouble was not handled.")
     // ˄
   }
 

@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.Scene
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.HBox
-import javafx.event.EventHandler
 
 // ˄
 
@@ -22,25 +21,14 @@ class AppMain extends Application {
 
   private val canvas: PaintingCanvas = new PaintingCanvas(400.0, 300.0)
 
-  override def start(primaryStage: Stage) = {
+  override def start(primaryStage: Stage): Unit = {
     // ˅
     // Create buttons
-    val clearButton: Button = new Button("clear")
-    clearButton.setOnMousePressed(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        canvas.clear()
-        history.clear()
-      }
-    })
+    val undoButton: Button = new Button("Undo")
+    undoButton.setOnMousePressed((event: MouseEvent) => undo())
 
-    val undoButton: Button = new Button("undo")
-    undoButton.setOnMousePressed(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        canvas.clear()
-        history.undo()
-        history.execute()
-      }
-    })
+    val clearButton: Button = new Button("Clear")
+    clearButton.setOnMousePressed((event: MouseEvent) => clear())
 
     // Create panes
     val hBox: HBox = new HBox(undoButton, clearButton)
@@ -50,24 +38,39 @@ class AppMain extends Application {
 
     // Create a scene
     val scene: Scene = new Scene(mainPane)
-    scene.setOnMouseDragged(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        val paintingCommand = new PaintingCommand(canvas, event.getSceneX, event.getSceneY)
-        history.add(paintingCommand)
-        paintingCommand.execute()
-      }
-    })
+    scene.setOnMouseDragged((event: MouseEvent) => onDragged(event.getSceneX, event.getSceneY))
 
     primaryStage.setTitle("Command Example")
     primaryStage.setScene(scene)
-    primaryStage.setOnCloseRequest(new EventHandler[WindowEvent] {
-      override def handle(event: WindowEvent): Unit = {
-        System.exit(0)
-      }
+    primaryStage.setOnCloseRequest((event: WindowEvent) => {
+      System.exit(0)
     })
 
     // Show
     primaryStage.show()
+    // ˄
+  }
+
+  private def onDragged(x: Double, y: Double): Unit = {
+    // ˅
+    val paintingCommand = new PaintingCommand(canvas, x, y)
+    history.add(paintingCommand)
+    paintingCommand.execute()
+    // ˄
+  }
+
+  private def undo(): Unit = {
+    // ˅
+    canvas.clear()
+    history.undo()
+    history.execute()
+    // ˄
+  }
+
+  private def clear(): Unit = {
+    // ˅
+    canvas.clear()
+    history.clear()
     // ˄
   }
 

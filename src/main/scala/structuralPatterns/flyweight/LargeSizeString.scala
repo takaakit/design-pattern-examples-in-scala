@@ -12,9 +12,9 @@ class LargeSizeString(string: String) {
 
   private var largeSizeChars: Seq[LargeSizeChar] = Seq[LargeSizeChar]()
 
-  def display() = {
+  def display(): Unit = {
     // ˅
-    largeSizeChars.indices.foreach(i => largeSizeChars.apply(i).display())
+    largeSizeChars.indices.foreach(i => largeSizeChars(i).display())
     // ˄
   }
 

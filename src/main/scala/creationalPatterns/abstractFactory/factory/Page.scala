@@ -1,7 +1,7 @@
 // ˅
 package creationalPatterns.abstractFactory.factory
 
-import java.io.FileWriter
+import java.io.{File, FileWriter}
 import scala.collection.mutable.Seq
 
 // ˄
@@ -19,19 +19,20 @@ abstract class Page(_title: String, _author: String) {
 
   def toHTML(): String
 
-  def add(item: Item) = {
+  def add(item: Item): Unit = {
     // ˅
     contents = contents :+ item
     // ˄
   }
 
-  def output() = {
+  def output(): Unit = {
     // ˅
     val fileName = f"$title.html"
     val writer = new FileWriter(fileName)
     writer.write(this.toHTML())
     writer.close()
     println(f"$fileName has been created.")
+    println(f"Output File: ${new File(new File(".").getAbsoluteFile.getParent, fileName).getPath}")
     // ˄
   }
 

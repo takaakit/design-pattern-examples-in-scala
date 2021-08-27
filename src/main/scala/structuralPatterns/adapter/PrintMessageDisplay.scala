@@ -8,13 +8,13 @@ class PrintMessageDisplay(_message: String) extends MessageDisplay(_message) wit
   
   // ˄
 
-  override def printWeak() = {
+  override def printWeak(): Unit = {
     // ˅
     displayWithHyphens()
     // ˄
   }
 
-  override def printStrong() = {
+  override def printStrong(): Unit = {
     // ˅
     displayWithBrackets()
     // ˄

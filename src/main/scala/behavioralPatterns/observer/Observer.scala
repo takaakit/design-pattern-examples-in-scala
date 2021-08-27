@@ -9,7 +9,7 @@ trait Observer {
   
   // ˄
 
-  def update(number: Number)
+  def update(changedSubject: Subject): Unit
 
   // ˅
   

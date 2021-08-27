@@ -2,26 +2,23 @@
 package behavioralPatterns.state
 
 import javafx.application.Application
-import javafx.event.EventHandler
 import javafx.geometry.Pos
 import javafx.scene.Scene
-import javafx.scene.control.TextField
-import javafx.scene.control.TextArea
-import javafx.scene.control.Button
+import javafx.scene.control.{Button, TextArea, TextField}
 import javafx.scene.input.MouseEvent
-import javafx.scene.layout.HBox
-import javafx.scene.layout.Pane
-import javafx.scene.layout.VBox
+import javafx.scene.layout.{HBox, Pane, VBox}
 import javafx.stage.{Stage, WindowEvent}
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
 
 // ˄
 
+// Safe security system that the security status changes with time.
 class AppSafe extends Application with Context {
   // ˅
   
   // ˄
+
+  // Current state
+  private var state: State = DaytimeState
 
   // Current time
   private var textTime: TextField = null
@@ -29,57 +26,40 @@ class AppSafe extends Application with Context {
   // Display of security center
   private var textMessage: TextArea = null
 
-  // Current state
-  private var state: State = DaytimeState
-
-  override def start(primaryStage: Stage) = {
+  override def start(primaryStage: Stage): Unit = {
     // ˅
     textTime = new TextField("")
+    textTime.setEditable(false)
+
     textMessage = new TextArea("")
+    textMessage.setEditable(false)
 
-    val thisContext: Context = this
-
-    val buttonUse: Button = new Button("Use a safe")
-    buttonUse.setOnMouseClicked(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        state.useSafe(thisContext)      // Safe use button pressed
-      }
+    val buttonUse: Button = new Button("Use")
+    buttonUse.setOnMouseClicked((event: MouseEvent) => {
+      pressedUseButton()
     })
 
-    val buttonAlarm: Button = new Button("Sound an emergency bell")
-    buttonAlarm.setOnMouseClicked(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        state.soundBell(thisContext)   // Emergency bell button pressed
-      }
+    val buttonAlarm: Button = new Button("Alarm")
+    buttonAlarm.setOnMouseClicked((event: MouseEvent) => {
+      pressedAlarmButton()
     })
 
-    val buttonPhone: Button = new Button("Make a call")
-    buttonPhone.setOnMouseClicked(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        state.call(thisContext)        // Normal call button pressed
-      }
-    })
-
-    val buttonExit: Button = new Button("Exit")
-    buttonExit.setOnMouseClicked(new EventHandler[MouseEvent] {
-      override def handle(event: MouseEvent): Unit = {
-        System.exit(0)          // Exit button pressed
-      }
+    val buttonPhone: Button = new Button("Phone")
+    buttonPhone.setOnMouseClicked((event: MouseEvent) => {
+      pressedPhoneButton()
     })
 
     val topPane: Pane = new Pane(textTime)
     val centerScreen: Pane = new Pane(textMessage)
-    val bottomPane: HBox = new HBox(buttonUse, buttonAlarm, buttonPhone, buttonExit)
+    val bottomPane: HBox = new HBox(buttonUse, buttonAlarm, buttonPhone)
     bottomPane.setAlignment(Pos.BOTTOM_CENTER)
     val mainPane: VBox = new VBox(topPane, centerScreen, bottomPane)
 
     val scene: Scene = new Scene(mainPane)
     primaryStage.setScene(scene)
     primaryStage.setTitle("State Example")
-    primaryStage.setOnCloseRequest(new EventHandler[WindowEvent] {
-      override def handle(event: WindowEvent): Unit = {
-        System.exit(0)
-      }
+    primaryStage.setOnCloseRequest((event: WindowEvent) => {
+      System.exit(0)
     })
 
     // Show
@@ -88,14 +68,14 @@ class AppSafe extends Application with Context {
   }
 
   // Set time
-  override def setTime(hour: Int) = {
+  override def setTime(hour: Int): Unit = {
     // ˅
     var clockString = "Current Time : "
     if (hour < 10) {
-      clockString += f"0${hour.toString()}:00"
+      clockString += f"0${hour}:00"
     }
     else {
-      clockString += f"${hour.toString()}:00"
+      clockString += f"${hour}:00"
     }
     println(clockString)
     if (textTime != null) {
@@ -106,36 +86,54 @@ class AppSafe extends Application with Context {
   }
 
   // Change state
-  override def changeState(state: State) = {
+  override def changeState(state: State): Unit = {
     // ˅
-    println(f"The state changed from ${this.state.toString()} to $state.")
+    println(f"The state changed from ${this.state} to $state.")
     this.state = state
     // ˄
   }
 
   // Call a security guard room
-  override def callSecurityGuardsRoom(msg: String) = {
+  override def callSecurityGuardsRoom(msg: String): Unit = {
     // ˅
-    textMessage.appendText(f"call! $msg\n")
+    textMessage.appendText(f"call! $msg${System.getProperty("line.separator")}")
     // ˄
   }
 
   // Record security log
-  override def recordSecurityLog(msg: String) = {
+  override def recordSecurityLog(msg: String): Unit = {
     // ˅
-    textMessage.appendText(f"record ... $msg\n")
+    textMessage.appendText(f"record ... $msg${System.getProperty("line.separator")}")
+    // ˄
+  }
+
+  private def pressedUseButton(): Unit = {
+    // ˅
+    state.use(this)
+    // ˄
+  }
+
+  private def pressedAlarmButton(): Unit = {
+    // ˅
+    state.alarm(this)
+    // ˄
+  }
+
+  private def pressedPhoneButton(): Unit = {
+    // ˅
+    state.phone(this)
     // ˄
   }
 
   // ˅
-  Future {
+  new Thread(() => {
     while (true) {
       for (hour <- 0 to 23) {
         setTime(hour) // Set the time
         Thread.sleep(1000)
       }
     }
-  }
+  }).start()
   // ˄
 }
 

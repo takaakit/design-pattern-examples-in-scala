@@ -8,17 +8,15 @@ trait State {
   
   // ˄
 
-  // Set time
-  def setTime(context: Context, hour: Int)
+  def setTime(context: Context, hour: Int): Unit
 
-  // Use a safe
-  def useSafe(context: Context)
+  def use(context: Context): Unit
 
-  // Sound a emergency bell
-  def soundBell(context: Context)
+  def alarm(context: Context): Unit
 
-  // Make a normal call
-  def call(context: Context)
+  def phone(context: Context): Unit
+
+  def toString(): String
 
   // ˅
   

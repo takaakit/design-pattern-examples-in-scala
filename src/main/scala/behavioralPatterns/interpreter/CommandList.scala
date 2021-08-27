@@ -1,8 +1,8 @@
 // ˅
 package behavioralPatterns.interpreter
 
-import scala.util.control.Breaks
 import scala.collection.mutable.Seq
+import scala.util.control.Breaks
 
 // ˄
 
@@ -13,12 +13,12 @@ class CommandList extends Node {
 
   private var nodes: Seq[Node] = Seq[Node]()
 
-  override def parse(context: Context) = {
+  override def parse(context: Context): Unit = {
     // ˅
     val b = new Breaks
     b.breakable {
       while (true) {
-        if (context.getToken() == null) {
+        if (context.getToken().isEmpty) {
           throw new Exception("Missing 'end'")
         }
         else if (context.getToken() == "end") {
@@ -26,9 +26,9 @@ class CommandList extends Node {
           b.break
         }
         else {
-          val commandNode = new Command()
-          commandNode.parse(context)
-          nodes = nodes :+ commandNode
+          val aNode = new Command()
+          aNode.parse(context)
+          nodes = nodes :+ aNode  // Hold the parsed node
         }
       }
     }
@@ -37,7 +37,7 @@ class CommandList extends Node {
 
   override def toString(): String = {
     // ˅
-    nodes.mkString(" ")
+    "[" + nodes.mkString(", ") + "]"
     // ˄
   }
 

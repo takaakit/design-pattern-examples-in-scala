@@ -14,29 +14,29 @@ class HistoryCommand extends Command {
   // A set of past commands
   private val pastCommands: Stack[Command] = new Stack[Command]
 
-  override def execute() = {
+  override def execute(): Unit = {
     // ˅
     pastCommands.forEach(_.execute())
     // ˄
   }
 
-  def add(cmd: Command) = {
+  def add(cmd: Command): Unit = {
     // ˅
     pastCommands.add(cmd)
     // ˄
   }
 
   // Delete the last command
-  def undo() = {
+  def undo(): Unit = {
     // ˅
-    if (pastCommands.empty() == false) {
+    if (!pastCommands.empty()) {
       pastCommands.pop()
     }
     // ˄
   }
 
   // Delete all past commands.
-  def clear() = {
+  def clear(): Unit = {
     // ˅
     pastCommands.clear()
     // ˄

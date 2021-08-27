@@ -10,7 +10,7 @@ trait Display extends Cloneable {
 
   def createClone(): Display
 
-  def show(message: String)
+  def show(message: String): Unit
 
   // ˅
   

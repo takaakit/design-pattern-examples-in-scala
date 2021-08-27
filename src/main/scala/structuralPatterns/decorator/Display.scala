@@ -9,17 +9,17 @@ abstract class Display {
   // ˄
 
   // Column width
-  def columns(): Int
+  def getColumns(): Int
 
   // Number of rows
-  def rows(): Int
+  def getRows(): Int
 
   def getLineText(row: Int): String
 
   // Show all
-  def show() = {
+  def show(): Unit = {
     // ˅
-    for (i <- 0 until rows) {
+    for (i <- 0 until getRows()) {
       println(getLineText(i))
     }
     // ˄

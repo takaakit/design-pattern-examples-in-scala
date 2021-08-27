@@ -4,19 +4,22 @@ package behavioralPatterns.observer
 // ˄
 
 // Display values with a bar chart.
-class BarChartObserver extends Observer {
+class BarChartObserver(_numberSubject: NumberSubject) extends Observer {
   // ˅
   
   // ˄
 
-  override def update(number: Number) = {
+  private val numberSubject: NumberSubject = _numberSubject
+
+  override def update(changedSubject: Subject): Unit = {
     // ˅
-    print("Bar chart: ")
-    for (i <- 0 until number.value) {
-      print("*")
+    if (changedSubject == this.numberSubject) {
+      print("Bar chart: ")
+      for (i <- 0 until this.numberSubject.getValue()) {
+        print("*")
+      }
+      println()
     }
-    println("")
-    Thread.sleep(100)
     // ˄
   }
 

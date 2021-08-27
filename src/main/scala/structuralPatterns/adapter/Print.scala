@@ -8,9 +8,9 @@ trait Print {
   
   // ˄
 
-  def printWeak()
+  def printWeak(): Unit
 
-  def printStrong()
+  def printStrong(): Unit
 
   // ˅
   

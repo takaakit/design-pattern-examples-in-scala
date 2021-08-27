@@ -11,7 +11,7 @@ class Director(_builder: Builder) {
   private val builder: Builder = _builder
 
   // Construct a document
-  def build() = {
+  def build(): Unit = {
     // ˅
     builder.createTitle("Greeting")                                           // Title
     builder.createSection("Morning and Afternoon")                            // Section

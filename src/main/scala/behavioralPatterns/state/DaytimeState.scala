@@ -8,8 +8,7 @@ object DaytimeState extends State {
   
   // ˄
 
-  // Set time
-  override def setTime(context: Context, hour: Int) = {
+  override def setTime(context: Context, hour: Int): Unit = {
     // ˅
     if (hour < 9 || 17 <= hour) {
       context.changeState(NightState)
@@ -17,22 +16,19 @@ object DaytimeState extends State {
     // ˄
   }
 
-  // Use a safe
-  override def useSafe(context: Context) = {
+  override def use(context: Context): Unit = {
     // ˅
     context.recordSecurityLog("Use a safe in the daytime")
     // ˄
   }
 
-  // Sound a emergency bell
-  override def soundBell(context: Context) = {
+  override def alarm(context: Context): Unit = {
     // ˅
     context.callSecurityGuardsRoom("Sound a emergency bell in the daytime")
     // ˄
   }
 
-  // Make a normal call
-  override def call(context: Context) = {
+  override def phone(context: Context): Unit = {
     // ˅
     context.callSecurityGuardsRoom("Make a normal call in the daytime")
     // ˄

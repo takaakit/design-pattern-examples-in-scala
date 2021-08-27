@@ -9,7 +9,7 @@ abstract class Node {
   
   // ˄
 
-  def parse(context: Context)
+  def parse(context: Context): Unit
 
   def toString(): String
 

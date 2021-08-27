@@ -1,31 +1,41 @@
 // ˅
 package behavioralPatterns.mediator
 
+import javafx.event.ActionEvent
 import javafx.scene.control.RadioButton
-import javafx.event.{ActionEvent, EventHandler}
 
 // ˄
 
-class ColleagueRadioButton(caption: String) extends RadioButton(caption) with Colleague {
+class ColleagueRadioButton(_radioButton: RadioButton) extends Colleague {
   // ˅
-  setOnAction(new EventHandler[ActionEvent] {
-    override def handle(event: ActionEvent): Unit = {
-      mediator.colleagueChanged()
-    }
-  })
+
   // ˄
 
-  override var mediator: Mediator = null
+  private val radioButton: RadioButton = _radioButton
 
   // Set enable/disable from the Mediator
-  override def setActivation(isEnable: Boolean) = {
+  override def setActivation(isEnable: Boolean): Unit = {
     // ˅
-    setDisable(!isEnable)
+    this.radioButton.setDisable(!isEnable)
+    // ˄
+  }
+
+  def isSelected(): Boolean = {
+    // ˅
+    this.radioButton.isSelected
+    // ˄
+  }
+
+  def getRadioButton(): RadioButton = {
+    // ˅
+    this.radioButton
     // ˄
   }
 
   // ˅
-  
+  this.radioButton.setOnAction((event: ActionEvent) => {
+    mediator.colleagueChanged()
+  })
   // ˄
 }
 

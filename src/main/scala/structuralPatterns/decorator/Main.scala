@@ -1,34 +1,18 @@
 package structuralPatterns.decorator
 
-// Display a character string with a decorative frame.
+/*
+Display a string with decorative frames. The frames can be combined arbitrarily.
+*/
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val displayA: Display = new MessageDisplay("Nice to meet you.")
+    val displayA = new MessageDisplay("Nice to meet you.")
     displayA.show()
 
-    val displayB: Display = new SideFrame(displayA, '!')
+    val displayB = new SideFrame(new MessageDisplay("Nice to meet you."), '!')
     displayB.show()
 
-    val displayC: Display = new FullFrame(displayB)
+    val displayC = new FullFrame(new SideFrame(new MessageDisplay("Nice to meet you."), '!'))
     displayC.show()
-
-    val displayD: Display = new SideFrame(
-      new FullFrame(
-        new FullFrame(
-          new SideFrame(
-            new SideFrame(
-              new FullFrame(
-                new MessageDisplay("See you again.")
-              ),
-              '#'
-            ),
-            '#'
-          )
-        )
-      ),
-      '#'
-    )
-    displayD.show()
   }
 }

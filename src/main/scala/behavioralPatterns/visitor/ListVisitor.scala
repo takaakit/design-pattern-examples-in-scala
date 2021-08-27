@@ -12,21 +12,21 @@ class ListVisitor extends Visitor {
   private var currentDirectory: String = ""
 
   // Visit a file
-  override def visit(file: File) = {
+  override def visit(file: File): Unit = {
     // ˅
     println(f"$currentDirectory/$file")
     // ˄
   }
 
   // Visit a directory
-  override def visit(directory: Directory) = {
+  override def visit(directory: Directory): Unit = {
     // ˅
     println(f"$currentDirectory/$directory")
     val visitedDirectory = currentDirectory
-    currentDirectory = currentDirectory + "/" + directory.name
+    currentDirectory = f"$currentDirectory/${directory.getName()}"
     val it = directory.iterator()
     while (it.hasNext) {
-      val element = it.next().asInstanceOf[FileSystemElement]
+      val element = it.next()
       element.accept(this)
     }
     currentDirectory = visitedDirectory

@@ -12,7 +12,7 @@ class Manager {
 
   private val display: Map[String, Display] = Map[String, Display]()
 
-  def registerDisplay(displayName: String, display: Display) = {
+  def registerDisplay(displayName: String, display: Display): Unit = {
     // ˅
     this.display.put(displayName, display)
     // ˄

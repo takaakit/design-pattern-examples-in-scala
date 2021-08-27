@@ -3,14 +3,14 @@ package behavioralPatterns.visitor
 
 // ˄
 
-abstract class Visitor {
+trait Visitor {
   // ˅
   
   // ˄
 
-  def visit(file: File)
+  def visit(file: File): Unit
 
-  def visit(directory: Directory)
+  def visit(directory: Directory): Unit
 
   // ˅
   

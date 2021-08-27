@@ -12,14 +12,14 @@ class MessageDisplay(_message: String) extends Display {
   private val message: String = _message
 
   // Number of characters
-  override def columns(): Int = {
+  override def getColumns(): Int = {
     // ˅
     message.getBytes.size
     // ˄
   }
 
   // The number of rows is 1
-  override def rows(): Int = {
+  override def getRows(): Int = {
     // ˅
     1
     // ˄
@@ -31,7 +31,7 @@ class MessageDisplay(_message: String) extends Display {
       message
     }
     else {
-      null
+      ""
     }
     // ˄
   }

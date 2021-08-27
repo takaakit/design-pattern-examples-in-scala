@@ -12,16 +12,16 @@ class SideFrame(_display: Display, _frameChar: Char) extends Frame(_display) {
   private val frameChar: Char = _frameChar
 
   // Number of characters added left and right decoration characters
-  override def columns(): Int = {
+  override def getColumns(): Int = {
     // ˅
-    1 + display.columns + 1
+    1 + display.getColumns() + 1
     // ˄
   }
 
   // Number of lines
-  override def rows(): Int = {
+  override def getRows(): Int = {
     // ˅
-    display.rows
+    display.getRows()
     // ˄
   }
 

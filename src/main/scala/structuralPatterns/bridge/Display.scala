@@ -10,7 +10,7 @@ class Display(_impl: DisplayImpl) {
 
   private val impl: DisplayImpl = _impl
 
-  def output() = {
+  def output(): Unit = {
     // ˅
     open()
     write()
@@ -18,19 +18,19 @@ class Display(_impl: DisplayImpl) {
     // ˄
   }
 
-  protected def open() = {
+  protected def open(): Unit = {
     // ˅
     impl.implOpen()
     // ˄
   }
 
-  protected def write() = {
+  protected def write(): Unit = {
     // ˅
     impl.implWrite()
     // ˄
   }
 
-  protected def close() = {
+  protected def close(): Unit = {
     // ˅
     impl.implClose()
     // ˄

@@ -1,47 +1,47 @@
 package behavioralPatterns.strategy
 
-/*
-A game of rock-scissors-paper.
-There are two strategies below.
+import behavioralPatterns.strategy.GameResultType.Win
+import behavioralPatterns.strategy.GameResultType.Loss
+import behavioralPatterns.strategy.GameResultType.Draw
 
-* When winning a game, show the same hand at the next time.
-* Calculate a hand from the previous hand stochastically.
+/*
+A game of rock-scissors-paper. Two strategies are available:
+* Random Strategy: showing a random hand signal.
+* Mirror Strategy: showing a hand signal from the previous opponent's hand signal.
 */
 
 object Main {
   def main(args: Array[String]): Unit = {
-    if (args.size != 2) {
-      println("Usage: java Main RandomSeedNumber1 RandomSeedNumber2")
-      println("Ex.  : java Main 314 15")
-    }
-    else {
-      val randomSeed1 = Integer.parseInt(args.apply(0).asInstanceOf[String])
-      val randomSeed2 = Integer.parseInt(args.apply(1).asInstanceOf[String])
-      val player1 = new Player("Emily", new StrategyA(randomSeed1))
-      val player2 = new Player("James", new StrategyB(randomSeed2))
+    val player1 = new Player("Emily", new RandomStrategy)
+    val player2 = new Player("James", new MirrorStrategy)
 
-      for (i <- 0 to 99) {
-        val nextHand1 = player1.nextHand()
-        val nextHand2 = player2.nextHand()
-        if (nextHand1.isStrongerThan(nextHand2)) {
-          println(f"Winner: $player1")
-          player1.won()
-          player2.lost()
-        }
-        else if (nextHand2.isStrongerThan(nextHand1)) {
-          println(f"Winner: $player2")
-          player1.lost()
-          player2.won()
-        }
-        else {
-          println("Draw...")
-          player1.drew()
-          player2.drew()
-        }
+    for (i <- 0 until 100) {
+      val handOfPlayer1 = player1.showHandSignal()
+      val handOfPlayer2 = player2.showHandSignal()
+
+      var resultOfPlayer1: GameResultType = null
+      var resultOfPlayer2: GameResultType = null
+      if (handOfPlayer1.isStrongerThan(handOfPlayer2)) {
+        System.out.println("Winner: " + player1)
+        resultOfPlayer1 = Win
+        resultOfPlayer2 = Loss
       }
-      println("RESULT:")
-      println(player1.toString())
-      println(player2.toString())
+      else if (handOfPlayer2.isStrongerThan(handOfPlayer1)) {
+        System.out.println("Winner: " + player2)
+        resultOfPlayer1 = Loss
+        resultOfPlayer2 = Win
+      }
+      else {
+        System.out.println("Draw...")
+        resultOfPlayer1 = Draw
+        resultOfPlayer2 = Draw
+      }
+
+      player1.notifyGameResult(resultOfPlayer1, handOfPlayer1, handOfPlayer2)
+      player2.notifyGameResult(resultOfPlayer2, handOfPlayer2, handOfPlayer1)
     }
+    System.out.println("RESULT:")
+    System.out.println(player1)
+    System.out.println(player2)
   }
 }

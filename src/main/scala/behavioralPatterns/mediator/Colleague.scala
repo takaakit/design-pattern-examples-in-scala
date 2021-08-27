@@ -3,15 +3,15 @@ package behavioralPatterns.mediator
 
 // ˄
 
-trait Colleague {
+abstract class Colleague {
   // ˅
   
   // ˄
 
-  var mediator: Mediator
+  var mediator: Mediator = null
 
   // Set enable/disable from the Mediator
-  def setActivation(isEnable: Boolean)
+  def setActivation(isEnable: Boolean): Unit
 
   // ˅
   

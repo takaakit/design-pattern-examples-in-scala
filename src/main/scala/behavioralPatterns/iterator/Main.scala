@@ -1,6 +1,8 @@
 package behavioralPatterns.iterator
 
-// Add books in the bookshelf and display the names of the books in turn.
+/*
+Add books in a bookshelf and display the names of the book in turn.
+ */
 
 object Main {
   def main(args: Array[String]): Unit = {

@@ -4,15 +4,18 @@ package behavioralPatterns.observer
 // ˄
 
 // Display values with digits.
-class DigitObserver extends Observer {
+class DigitObserver(_numberSubject: NumberSubject) extends Observer {
   // ˅
   
   // ˄
 
-  override def update(number: Number) = {
+  private val numberSubject: NumberSubject = _numberSubject
+
+  override def update(changedSubject: Subject): Unit = {
     // ˅
-    println(f"Digit    : ${number.value}")
-    Thread.sleep(100)
+    if (changedSubject == this.numberSubject) {
+      println(f"Digit    : ${this.numberSubject.getValue()}")
+    }
     // ˄
   }
 

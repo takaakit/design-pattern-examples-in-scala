@@ -10,13 +10,13 @@ class MessageDisplay(_message: String) {
 
   private val message: String = _message
 
-  def displayWithHyphens() = {
+  def displayWithHyphens(): Unit = {
     // ˅
     println(f"-- $message --")
     // ˄
   }
 
-  def displayWithBrackets() = {
+  def displayWithBrackets(): Unit = {
     // ˅
     println(f"[[ $message ]]")
     // ˄

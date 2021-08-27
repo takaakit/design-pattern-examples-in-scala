@@ -3,16 +3,16 @@ package structuralPatterns.bridge
 
 // ˄
 
-abstract class DisplayImpl {
+trait DisplayImpl {
   // ˅
   
   // ˄
 
-  def implOpen()
+  def implOpen(): Unit
 
-  def implWrite()
+  def implWrite(): Unit
 
-  def implClose()
+  def implClose(): Unit
 
   // ˅
   

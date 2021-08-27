@@ -8,16 +8,16 @@ abstract class AbstractDisplay {
   
   // ˄
 
-  def open()
+  def open(): Unit
 
-  def write()
+  def write(): Unit
 
-  def close()
+  def close(): Unit
 
-  def output() = {
+  def output(): Unit = {
     // ˅
     open()
-    for (i <- 0 to 4) {       // Repeat write 5 times
+    for (i <- 0 until 5) {       // Repeat write 5 times
       write()
     }
     close()

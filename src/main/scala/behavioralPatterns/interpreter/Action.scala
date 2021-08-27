@@ -11,12 +11,12 @@ class Action extends Node {
 
   private var name: String = null
 
-  override def parse(context: Context) = {
+  override def parse(context: Context): Unit = {
     // ˅
     name = context.getToken()
     context.slideToken(name)
     if (name != "forward" && name != "right" && name != "left") {
-      throw new Exception(f"$name is unknown")
+      throw new Exception(f"${name} is unknown")
     }
     // ˄
   }

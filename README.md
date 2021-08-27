@@ -6,14 +6,13 @@ Design Pattern Examples in Scala
 Model and code examples of GoF Design Patterns for Scala.  
 This project is available for the following objectives:  
 
-* To try Model-Driven Development (MDD) using Astah and M PLUS plug-in.
+* To understand GoF Design Pattern examples in Scala.
 * To understand the mapping between UML model and Scala code.
-* To understand GoF Design Pattern examples in Scala.  
-  etc.
+* To try Model-Driven Development (MDD) using Astah and M PLUS plug-in.
 
 > UML model example:
 
-![](screenshots/CompositePattern.png "Composite Pattern")
+![](screenshots/CompositePattern.svg "Composite Pattern")
 
 > Scala code example:
 
@@ -25,22 +24,34 @@ package structuralPatterns.composite
 
 class File(_name: String, _size: Int) extends FileSystemElement {
   // ˅
-
+  
   // ˄
 
-  override protected val name: String = _name
+  private val name: String = _name
 
-  override protected val size: Int = _size
+  private val size: Int = _size
+
+  override def getName(): String = {
+    // ˅
+    name
+    // ˄
+  }
+
+  override def getSize(): Int = {
+    // ˅
+    size
+    // ˄
+  }
 
   // Print this element with the "upperPath".
-  override def print(upperPath: String) = {
+  override def print(upperPath: String): Unit = {
     // ˅
     println(f"$upperPath/$this")
     // ˄
   }
 
   // ˅
-
+  
   // ˄
 }
 
@@ -56,10 +67,10 @@ Installation
 
 **M PLUS plug-in**
 * Download the plug-in from [M PLUS plug-in site](https://sites.google.com/view/m-plus-plugin/download), and install.  
-  **Use ver.2.0 or higher.**
+  Use **ver.2.7.6** or higher.
 
-**Development Environment for Scala and JavaFX**
-* Prepare an arbitrary development environment for Scala and JavaFX. If you don't want to install JavaFX, you need to remove the following packages that use JavaFX to prevent build errors.
+**Development Environment for Scala3 and JavaFX**
+* Prepare an arbitrary development environment for **Scala3** and **JavaFX**. If you don't want to install JavaFX, you need to remove the following packages that use JavaFX to prevent build errors.
   - src/main/scala/behavioralPatterns/command
   - src/main/scala/behavioralPatterns/mediator
   - src/main/scala/behavioralPatterns/state

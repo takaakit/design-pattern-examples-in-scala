@@ -17,16 +17,16 @@ class PaintingCanvas(_width: Double, _height: Double) extends Canvas with Painti
   // Radius of the painting point
   private val pointRadius: Double = 6.0
 
-  override def paint(paintingPosX: Double, paintingPosY: Double) = {
+  override def paint(paintingPosX: Double, paintingPosY: Double): Unit = {
     // ˅
-    getGraphicsContext2D().setFill(paintingColor)
-    getGraphicsContext2D().fillOval(paintingPosX - pointRadius, paintingPosY - pointRadius, pointRadius * 3, pointRadius * 3)
+    getGraphicsContext2D.setFill(paintingColor)
+    getGraphicsContext2D.fillOval(paintingPosX - pointRadius, paintingPosY - pointRadius, pointRadius * 3, pointRadius * 3)
     // ˄
   }
 
-  override def clear() = {
+  override def clear(): Unit = {
     // ˅
-    getGraphicsContext2D().clearRect(0.0, 0.0, _width, _height)
+    getGraphicsContext2D.clearRect(0.0, 0.0, _width, _height)
     // ˄
   }
 

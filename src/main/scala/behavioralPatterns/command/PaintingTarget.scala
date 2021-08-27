@@ -8,9 +8,9 @@ trait PaintingTarget {
   
   // ˄
 
-  def paint(x: Double, y: Double)
+  def paint(x: Double, y: Double): Unit
 
-  def clear()
+  def clear(): Unit
 
   // ˅
   

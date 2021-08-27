@@ -9,15 +9,25 @@ class File(_name: String, _size: Int) extends FileSystemElement {
   // ˄
 
   // File name
-  override val name: String = _name
+  private val name: String = _name
 
-  override def size(): Int = {
+  private val size: Int = _size
+
+  // File name
+  override def getName(): String = {
     // ˅
-    _size
+    name
     // ˄
   }
 
-  override def accept(visitor: Visitor) = {
+  // File size
+  override def getSize(): Int = {
+    // ˅
+    size
+    // ˄
+  }
+
+  override def accept(visitor: Visitor): Unit = {
     // ˅
     visitor.visit(this)
     // ˄

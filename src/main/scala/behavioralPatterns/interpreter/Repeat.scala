@@ -13,19 +13,20 @@ class Repeat extends Node {
 
   private var commandList: Node = null
 
-  override def parse(context: Context) = {
+  override def parse(context: Context): Unit = {
     // ˅
     context.slideToken("repeat")
     number = context.getNumber()
-    context.nextToken()
-    commandList = new CommandList()
-    commandList.parse(context)
+    context.slideToken(Integer.toString(number))
+    val aCommandList = new CommandList()
+    aCommandList.parse(context)
+    this.commandList = aCommandList // Hold the parsed command list
     // ˄
   }
 
   override def toString(): String = {
     // ˅
-    f"[repeat $number $commandList]"
+    f"repeat $number ${commandList}"
     // ˄
   }
 

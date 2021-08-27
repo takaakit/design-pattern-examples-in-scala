@@ -1,14 +1,19 @@
 package structuralPatterns.proxy
 
-// At the time of printing, create an instance of the printer for the first time.
-// In order to spend time creating a printer, call a heavy task when creating a printer instance.
+/*
+Print on a named printer. Setting and changing the printer name is done by Proxy (ProxyPrinter).
+At the time of printing, create an instance of the RealSubject (RealPrinter) for the first time.
+*/
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val p = new PrinterProxy("Emily's printer")
-    println(f"The current printer is ${p.getPrinterName()}.")
-    p.setPrinterName("William's printer")
-    println(f"The current printer is ${p.getPrinterName()}.")
+    val p = new ProxyPrinter("PRINTER-A")
+    System.out.println("The printer name is " + p.getName() + ".")
+    p.changeName("PRINTER-B")
+    System.out.println("The printer name is " + p.getName() + ".")
+
+    System.out.println("Print start.")
     p.output("Nice to meet you.")
+    System.out.println("Print exit.")
   }
 }

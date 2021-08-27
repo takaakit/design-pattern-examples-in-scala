@@ -1,32 +1,41 @@
 // ˅
 package behavioralPatterns.mediator
 
-import javafx.event.EventHandler
 import javafx.scene.control.Button
 import javafx.scene.input.MouseEvent
 
 // ˄
 
-class ColleagueButton(caption: String) extends Button(caption) with Colleague {
+class ColleagueButton(_button: Button) extends Colleague {
   // ˅
-  setOnMousePressed(new EventHandler[MouseEvent] {
-    override def handle(event: MouseEvent): Unit = {
-      mediator.colleagueChanged()
-    }
-  })
+
   // ˄
 
-  override var mediator: Mediator = null
+  private val button: Button = _button
 
   // Set enable/disable from the Mediator
-  override def setActivation(isEnable: Boolean) = {
+  override def setActivation(isEnable: Boolean): Unit = {
     // ˅
-    setDisable(!isEnable)
+    this.button.setDisable(!isEnable)
+    // ˄
+  }
+
+  def isPressed(): Boolean = {
+    // ˅
+    this.button.isPressed
+    // ˄
+  }
+
+  def getButton(): Button = {
+    // ˅
+    this.button
     // ˄
   }
 
   // ˅
-  
+  this.button.setOnMousePressed((event: MouseEvent) => {
+    mediator.colleagueChanged()
+  })
   // ˄
 }
 

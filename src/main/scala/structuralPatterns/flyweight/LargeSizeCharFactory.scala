@@ -16,12 +16,12 @@ object LargeSizeCharFactory {
   def getLargeSizeChar(charName: Char): LargeSizeChar = {
     // ˅
     var lsc: LargeSizeChar = null
-    if (poolChars.contains(charName.toString()) == true) {
-      lsc = poolChars.apply(charName.toString())
+    if (poolChars.contains(charName.toString)) {
+      lsc = poolChars.apply(charName.toString)
     }
     else {
       lsc = new LargeSizeChar(charName)            // Create an instance
-      poolChars.put(charName.toString(), lsc)
+      poolChars.put(charName.toString, lsc)
     }
     lsc
     // ˄

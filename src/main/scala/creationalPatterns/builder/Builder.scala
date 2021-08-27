@@ -3,18 +3,18 @@ package creationalPatterns.builder
 
 // ˄
 
-abstract class Builder {
+trait Builder {
   // ˅
   
   // ˄
 
-  def createTitle(title: String)
+  def createTitle(title: String): Unit
 
-  def createSection(section: String)
+  def createSection(section: String): Unit
 
-  def createItems(items: Array[String])
+  def createItems(items: Array[String]): Unit
 
-  def close()
+  def close(): Unit
 
   // ˅
   

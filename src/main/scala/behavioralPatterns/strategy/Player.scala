@@ -1,6 +1,10 @@
 // ˅
 package behavioralPatterns.strategy
 
+import behavioralPatterns.strategy.GameResultType.Win
+import behavioralPatterns.strategy.GameResultType.Loss
+import behavioralPatterns.strategy.GameResultType.Draw
+
 // ˄
 
 class Player(_name: String, _strategy: Strategy) {
@@ -18,35 +22,27 @@ class Player(_name: String, _strategy: Strategy) {
 
   private val strategy: Strategy = _strategy
 
-  // Calculate a hand from the strategy.
-  def nextHand(): Hand = {
+  // Show a hand signal from the strategy.
+  def showHandSignal(): HandSignal = {
     // ˅
-    strategy.nextHand()
+    strategy.showHandSignal()
     // ˄
   }
 
-  // Won a game.
-  def won() = {
+  // Notify a game result.
+  def notifyGameResult(result: GameResultType, ownHand: HandSignal, opponentsHand: HandSignal): Unit = {
     // ˅
-    strategy.learn(true)
-    winCount += 1
-    gameCount += 1
-    // ˄
-  }
-
-  // Lost a game.
-  def lost() = {
-    // ˅
-    strategy.learn(false)
-    lossCount += 1
-    gameCount += 1
-    // ˄
-  }
-
-  // Drew a game.
-  def drew() = {
-    // ˅
-    gameCount += 1
+    result match {
+      case Win =>
+        winCount += 1
+        gameCount += 1
+      case Loss =>
+        lossCount += 1
+        gameCount += 1
+      case Draw =>
+        gameCount += 1
+    }
+    strategy.notifyGameResult(result, ownHand, opponentsHand)
     // ˄
   }
 

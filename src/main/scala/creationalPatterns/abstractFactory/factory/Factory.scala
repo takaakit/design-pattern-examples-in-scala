@@ -20,9 +20,5 @@ abstract class Factory {
 }
 
 // ˅
-object Factory {
-  def getFactory(classname: String): Factory = {
-    Class.forName(classname).newInstance().asInstanceOf[Factory]
-  }
-}
+
 // ˄

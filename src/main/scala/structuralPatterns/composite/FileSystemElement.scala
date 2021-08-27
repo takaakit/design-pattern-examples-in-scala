@@ -8,16 +8,16 @@ abstract class FileSystemElement {
   
   // ˄
 
-  protected val name: String
+  def getName(): String
 
-  protected val size: Int
+  def getSize(): Int
 
   // Print this element with the "upperPath".
-  def print(upperPath: String)
+  def print(upperPath: String): Unit
 
   override def toString(): String = {
     // ˅
-    f"$name ($size)"
+    f"${getName()} (${getSize()})"
     // ˄
   }
 

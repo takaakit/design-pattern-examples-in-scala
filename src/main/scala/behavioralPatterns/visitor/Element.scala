@@ -8,7 +8,7 @@ trait Element {
   
   // ˄
 
-  def accept(visitor: Visitor)
+  def accept(visitor: Visitor): Unit
 
   // ˅
   

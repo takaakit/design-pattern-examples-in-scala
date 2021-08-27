@@ -10,15 +10,17 @@ abstract class Factory {
 
   def create(owner: String): Product = {
     // ˅
+    // Write pre-creation code here, if any.
+
     val product = createProduct(owner)
-    registerProduct(product)
+
+    // Write post-creation code here, if any.
+
     product
     // ˄
   }
 
   protected def createProduct(owner: String): Product
-
-  protected def registerProduct(product: Product)
 
   // ˅
   

@@ -11,17 +11,18 @@ class Program extends Node {
 
   private var commandList: Node = null
 
-  override def parse(context: Context) = {
+  override def parse(context: Context): Unit = {
     // ˅
     context.slideToken("program")
-    commandList = new CommandList()
-    commandList.parse(context)
+    val aCommandList = new CommandList()
+    aCommandList.parse(context)
+    this.commandList = aCommandList // Hold the parsed command list
     // ˄
   }
 
   override def toString(): String = {
     // ˅
-    f"[program ${commandList.toString}]"
+    f"[program ${commandList}]"
     // ˄
   }
 

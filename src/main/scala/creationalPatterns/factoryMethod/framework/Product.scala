@@ -3,12 +3,12 @@ package creationalPatterns.factoryMethod.framework
 
 // ˄
 
-abstract class Product {
+trait Product {
   // ˅
   
   // ˄
 
-  def use()
+  def use(): Unit
 
   // ˅
   
