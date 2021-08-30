@@ -1,4 +1,4 @@
-[<img src="./screenshots/DiagramMap.svg">](https://raw.githubusercontent.com/takaakit/design-pattern-examples-in-scale/master/screenshots/DiagramMap.svg)
+[<img src="./screenshots/DiagramMap.svg">](https://raw.githubusercontent.com/takaakit/design-pattern-examples-in-scala/master/screenshots/DiagramMap.svg)
 
 Design Pattern Examples in Scala
 ===
