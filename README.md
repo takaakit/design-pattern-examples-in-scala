@@ -17,7 +17,7 @@ This project is available for the following objectives:
 <a id="code-example"></a>
 > Scala code example:
 
-```scala:File class
+```scala
 // ˅
 package structuralPatterns.composite
 
