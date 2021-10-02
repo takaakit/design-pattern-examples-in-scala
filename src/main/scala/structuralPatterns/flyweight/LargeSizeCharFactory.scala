@@ -10,18 +10,18 @@ object LargeSizeCharFactory {
   
   // ˄
 
-  private val poolChars: Map[String, LargeSizeChar] = Map[String, LargeSizeChar]()
+  private val poolChars: Map[Char, LargeSizeChar] = Map[Char, LargeSizeChar]()
 
   // Create an instance of the large size character.
   def getLargeSizeChar(charName: Char): LargeSizeChar = {
     // ˅
     var lsc: LargeSizeChar = null
-    if (poolChars.contains(charName.toString)) {
-      lsc = poolChars.apply(charName.toString)
+    if (poolChars.contains(charName)) {
+      lsc = poolChars.apply(charName)
     }
     else {
       lsc = new LargeSizeChar(charName)            // Create an instance
-      poolChars.put(charName.toString, lsc)
+      poolChars.put(charName, lsc)
     }
     lsc
     // ˄
