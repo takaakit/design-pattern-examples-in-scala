@@ -5,6 +5,7 @@ import java.util.Random
 
 // ˄
 
+// Holds a value and notifies observers when the value is set.
 class NumberSubject extends Subject {
   // ˅
   
