@@ -6,12 +6,10 @@ import scala.io.Source
 
 // ˄
 
-class LargeSizeChar(_charName: Char) {
+class LargeSizeChar(charName: Char) {
   // ˅
   
   // ˄
-
-  private val charName: Char = _charName
 
   // Display data of the large size character
   private var displayData: String = null
