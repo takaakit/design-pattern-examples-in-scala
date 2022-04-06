@@ -14,7 +14,7 @@ class MessageDisplay(_message: String) extends Display {
   // Number of characters
   override def getColumns(): Int = {
     // ˅
-    message.getBytes.size
+    message.getBytes.length
     // ˄
   }
 

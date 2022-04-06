@@ -15,7 +15,7 @@ class PaintingCommand(_paintingObject: PaintingTarget, _paintingPosX: Double, _p
   // Painting position y
   private val paintingPosY: Double = _paintingPosY
 
-  private var paintingTarget: PaintingTarget = _paintingObject
+  private val paintingTarget: PaintingTarget = _paintingObject
 
   override def execute(): Unit = {
     // ˅

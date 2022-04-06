@@ -27,7 +27,7 @@ class SideFrame(_display: Display, _frameChar: Char) extends Frame(_display) {
 
   override def getLineText(row: Int): String = {
     // ˅
-    frameChar.toString() + display.getLineText(row) + frameChar.toString()
+    frameChar.toString + display.getLineText(row) + frameChar.toString
     // ˄
   }
 
