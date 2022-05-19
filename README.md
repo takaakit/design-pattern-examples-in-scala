@@ -74,7 +74,7 @@ Installation
   - src/main/scala/behavioralPatterns/command
   - src/main/scala/behavioralPatterns/mediator
   - src/main/scala/behavioralPatterns/state
-* Optionally, install an IDE (e.g. [IntelliJ](https://www.jetbrains.com/idea/download/)).
+* Install [IntelliJ](https://www.jetbrains.com/idea/download/). Then, install Scala and SBT plugin in IntelliJ.
 
 Usage
 -----
@@ -86,7 +86,7 @@ Usage
   The generated code has **User Code Area**. The User Code Area is the area enclosed by "˅" and "˄". Handwritten code written in the User Code Area remains after a re-generation. [View code example](#code-example).  
   For detailed usage of the tools, please see [Astah Manual](http://astah.net/manual) and [M PLUS plug-in Tips](https://sites.google.com/view/m-plus-plugin-tips).
 
-**Build and Run (if you use IntelliJ)**
+**Build and Run**
   1. Open the project root directory (design-pattern-examples-in-scala) in IntelliJ.
   2. Open `Main.scala` for the pattern you want to run, and click `Run` icon in the left gutter.
      ![](screenshots/BuildAndRun.gif "Build and Run")  
