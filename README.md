@@ -69,11 +69,7 @@ Installation
   [How to add plugins to Astah](https://astahblog.com/2014/12/15/astah_plugins/)
 
 **Scala Development Environment**
-* Install Java Development Kit (JDK) and JavaFX.  
-  If you don't want to install JavaFX, you need to remove the following packages that use JavaFX to prevent build errors.
-  - src/main/scala/behavioralPatterns/command
-  - src/main/scala/behavioralPatterns/mediator
-  - src/main/scala/behavioralPatterns/state
+* Install Java SDK **11** or higher.
 * Install [IntelliJ](https://www.jetbrains.com/idea/download/). Then, install Scala and SBT plugin in IntelliJ.
 
 Usage
