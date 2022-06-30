@@ -12,5 +12,5 @@ libraryDependencies ++= {
     case _                            => throw new Exception("Unknown platform!")
   }
   Seq("base", "controls")
-    .map(m => "org.openjfx" % s"javafx-$m" % "11" classifier osName)
+    .map(m => "org.openjfx" % s"javafx-$m" % "18.0.1" classifier osName)
 }
