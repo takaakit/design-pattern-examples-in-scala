@@ -1,4 +1,6 @@
 .idea
+.bsp
 target
+null
 project/target
 *.asta.lock
