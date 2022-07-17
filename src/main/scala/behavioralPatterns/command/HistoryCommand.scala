@@ -14,6 +14,7 @@ class HistoryCommand extends Command {
   // A set of past commands
   private val pastCommands: Stack[Command] = new Stack[Command]
 
+  // Execute all past commands
   override def execute(): Unit = {
     // ˅
     pastCommands.forEach(_.execute())

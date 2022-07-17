@@ -30,7 +30,7 @@ abstract class Supporter(_name: String) {
     // ˄
   }
 
-  // Set a next supporter.
+  // Set a next supporter and return it.
   def setNext(_next: Supporter): Supporter = {
     // ˅
     next = _next

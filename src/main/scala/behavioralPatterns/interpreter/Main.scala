@@ -37,6 +37,7 @@ After parsing  : [program [repeat 4 [forward, right]]]
 
 object Main {
   def main(args: Array[String]): Unit = {
+    // Reads commands line by line from the "program.txt" and parses them.
     val source = Source.fromFile("src/main/scala/behavioralPatterns/interpreter/program.txt")
     source.getLines.foreach { text =>
       println("Before parsing : " + text)
