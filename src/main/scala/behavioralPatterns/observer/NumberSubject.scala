@@ -15,6 +15,7 @@ class NumberSubject extends Subject {
 
   def setValue(value: Int): Unit = {
     // ˅
+    // Notify observers when the value is set.
     this.value = value
     notifyObservers()
     // ˄
