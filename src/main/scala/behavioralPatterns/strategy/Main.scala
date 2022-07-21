@@ -19,6 +19,7 @@ object Main {
       val handOfPlayer1 = player1.showHandSignal()
       val handOfPlayer2 = player2.showHandSignal()
 
+      // Judge win, loss, or draw
       var resultOfPlayer1: GameResultType = null
       var resultOfPlayer2: GameResultType = null
       if (handOfPlayer1.isStrongerThan(handOfPlayer2)) {

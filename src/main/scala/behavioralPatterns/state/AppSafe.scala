@@ -128,6 +128,7 @@ class AppSafe extends Application with Context {
   // ˅
   new Thread(() => {
     while (true) {
+      // Advance one hour for every second of real time.
       for (hour <- 0 to 23) {
         setTime(hour) // Set the time
         Thread.sleep(1000)
