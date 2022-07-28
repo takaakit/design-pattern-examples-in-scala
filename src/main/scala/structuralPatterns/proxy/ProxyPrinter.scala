@@ -15,7 +15,12 @@ class ProxyPrinter(_name: String) extends Printer {
 
   def getName(): String = {
     // ˅
-    this.currentName
+    if (real != null) {
+      real.getName()
+    }
+    else {
+      this.currentName
+    }
     // ˄
   }
 
