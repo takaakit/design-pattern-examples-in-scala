@@ -37,7 +37,7 @@ class ProxyPrinter(_name: String) extends Printer {
 
   override def output(content: String): Unit = {
     // ˅
-    // Check to see if the the RealPrinter had been created, create it if necessary.
+    // Check to see if the RealPrinter had been created, create it if necessary.
     if (real == null) {
       real = new RealPrinter(currentName)
     }
