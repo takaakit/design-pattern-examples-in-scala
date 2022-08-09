@@ -33,11 +33,9 @@ class StringDisplay(_string: String) extends AbstractDisplay {
 
   private def writeLine(): Unit = {
     // ˅
-    print("+")              // Display an end mark "+"
-    for (i <- 0 until width) {
-      print("-")            // Display a line "-"
-    }
-    println("+")            // Display an end mark "+"
+    print("+")                // Display an end mark "+"
+    print("-".repeat(width))  // Display a line "-"
+    println("+")              // Display an end mark "+"
     // ˄
   }
 

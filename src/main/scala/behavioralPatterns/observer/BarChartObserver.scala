@@ -15,11 +15,7 @@ class BarChartObserver(_numberSubject: NumberSubject) extends Observer {
     // ˅
     // Before processing, it checks to make sure the changed subject is the subject held.
     if (changedSubject == this.numberSubject) {
-      print("Bar chart: ")
-      for (i <- 0 until this.numberSubject.getValue()) {
-        print("*")
-      }
-      println()
+      println(f"Bar chart: ${"*".repeat(this.numberSubject.getValue())}")
     }
     // ˄
   }

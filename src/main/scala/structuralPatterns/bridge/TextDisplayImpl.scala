@@ -35,9 +35,7 @@ class TextDisplayImpl(_text: String) extends DisplayImpl {
   private def printLine(): Unit = {
     // ˅
     print("*")                          // Display "*" mark at the beginning of a frame.
-    for (i <- 0 until width) {          // Display "." for the number of "width".
-      print(".")
-    }
+    print(".".repeat(width))            // Display "." for the number of "width".
     println("*")                        // Display "*" mark at the end of a frame.
     // ˄
   }

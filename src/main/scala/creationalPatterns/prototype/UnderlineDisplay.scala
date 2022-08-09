@@ -20,13 +20,8 @@ class UnderlineDisplay(_underlineChar: Char) extends Display {
 
   override def show(message: String): Unit = {
     // ˅
-    val length = message.getBytes.length
     println("\"" + message + "\"")
-    print(" ")
-    for (i <- 0 until length) {
-      print(underlineChar)
-    }
-    println()
+    println(f" ${underlineChar.toString.repeat(message.getBytes.length)}")
     // ˄
   }
 

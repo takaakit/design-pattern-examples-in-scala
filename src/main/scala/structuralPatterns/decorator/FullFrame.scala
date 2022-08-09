@@ -38,11 +38,7 @@ class FullFrame(_display: Display) extends Frame(_display) {
 
   private def createLine(ch: Char, size: Int): String = {
     // ˅
-    val buf = new StringBuffer()
-    for (i <- 0 until size) {
-      buf.append(ch)
-    }
-    buf.toString
+    ch.toString.repeat(size)
     // ˄
   }
 

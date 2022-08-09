@@ -20,16 +20,9 @@ class FrameDisplay(_borderChar: Char) extends Display {
 
   override def show(message: String): Unit = {
     // ˅
-    val length = message.getBytes.length
-    for (i <- 0 until length + 4) {
-      print(borderChar)
-    }
-    println()
+    println(borderChar.toString.repeat(message.getBytes.length + 4))
     println(f"$borderChar $message $borderChar")
-    for (i <- 0 until length + 4) {
-      print(borderChar)
-    }
-    println()
+    println(borderChar.toString.repeat(message.getBytes.length + 4))
     // ˄
   }
 
