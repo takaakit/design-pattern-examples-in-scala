@@ -26,7 +26,7 @@ class Repeat extends Node {
 
   override def toString(): String = {
     // ˅
-    f"repeat $number ${commandList}"
+    f"repeat $number $commandList"
     // ˄
   }
 

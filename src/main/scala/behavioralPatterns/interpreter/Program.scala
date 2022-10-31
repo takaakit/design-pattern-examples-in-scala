@@ -22,7 +22,7 @@ class Program extends Node {
 
   override def toString(): String = {
     // ˅
-    f"[program ${commandList}]"
+    f"[program $commandList]"
     // ˄
   }
 

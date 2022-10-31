@@ -16,7 +16,7 @@ class Action extends Node {
     name = context.getToken()
     context.slideToken(name)
     if (name != "forward" && name != "right" && name != "left") {
-      throw new Exception(f"${name} is unknown")
+      throw new Exception(f"$name is unknown")
     }
     // ˄
   }
