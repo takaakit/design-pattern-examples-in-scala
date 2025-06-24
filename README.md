@@ -69,8 +69,13 @@ Installation
   [How to add plugins to Astah](https://astahblog.com/2014/12/15/astah_plugins/)
 
 **Scala Development Environment**
-* Install Java SDK **11** or higher.
-* Install [IntelliJ](https://www.jetbrains.com/idea/download/). Then, install Scala and SBT plugin in IntelliJ.
+* Install Java SDK **21** or higher.
+* Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/). Then, install Scala and SBT plugin in IntelliJ.
+
+**Project Requirements**
+* Scala: **3.7.1**
+* SBT: **1.11.2** or higher
+* JavaFX: **21.0.2** (automatically managed by SBT)
 
 Usage
 -----
@@ -83,9 +88,9 @@ Usage
   For detailed usage of the tools, please see [Astah Manual](https://astah.net/manual) and [m plus plug-in tips](https://sites.google.com/view/m-plus-plugin-tips).
 
 **Build and Run**
-  1. Open the project root directory (design-pattern-examples-in-scala) in IntelliJ.
-  2. Open `Main.scala` for the pattern you want to run, and click `Run` icon in the left gutter.
-     ![](./screenshots/BuildAndRun.gif "Build and Run")  
+  1. Open the project root directory (design-pattern-examples-in-scala) in IntelliJ IDEA.
+  2. Open `Main.scala` for the pattern you want to run, and click `Run` icon in the left gutter.  
+     ![](./screenshots/BuildAndRun.gif "Build and Run")
 
 References
 ----------
