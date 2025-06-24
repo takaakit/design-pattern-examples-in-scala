@@ -40,13 +40,12 @@ Please enter digits (ex. 1212123): 123
    ########
 */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    println("Please enter digits (ex. 1212123):")
-    val scan = new Scanner(System.in)
-    val inputValue = scan.next
+@main
+def main(): Unit = {
+  println("Please enter digits (ex. 1212123):")
+  val scan = new Scanner(System.in)
+  val inputValue = scan.next
 
-    val lss = new LargeSizeString(inputValue)
-    lss.display()
-  }
+  val lss = new LargeSizeString(inputValue)
+  lss.display()
 }

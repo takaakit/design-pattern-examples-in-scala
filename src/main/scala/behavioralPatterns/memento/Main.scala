@@ -8,30 +8,29 @@ A dice game in which money increases and decreases:
 * The game is repeated.
 */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    val gamer = new Gamer(100) // The initial money is 100
-    var memento = gamer.createMemento() // Save the initial state
+@main
+def main(): Unit = {
+  val gamer = new Gamer(100) // The initial money is 100
+  var memento = gamer.createMemento() // Save the initial state
 
-    for (i <- 0 until 10) {
-      println(f"==== Turn ${i + 1}") // Display count
+  for (i <- 0 until 10) {
+    println(f"==== Turn ${i + 1}") // Display count
 
-      gamer.play() // Play a game
+    gamer.play() // Play a game
 
-      // Determine the behavior of the Memento
-      if (gamer.money > memento.money) {
-        println("(Gamers' money is the highest ever, so record the current state.)")
-        memento = gamer.createMemento()
-      }
-      else if (gamer.money < memento.money / 2) {
-        println("(Gamer's money is less than half of the highest amount, so return to the recorded state.)")
-        gamer.setMemento(memento)
-        println(f"Gamer's money returns to ${gamer.money}.")
-      }
-
-      println()
-
-      Thread.sleep(1000)
+    // Determine the behavior of the Memento
+    if (gamer.money > memento.money) {
+      println("(Gamers' money is the highest ever, so record the current state.)")
+      memento = gamer.createMemento()
     }
+    else if (gamer.money < memento.money / 2) {
+      println("(Gamer's money is less than half of the highest amount, so return to the recorded state.)")
+      gamer.setMemento(memento)
+      println(f"Gamer's money returns to ${gamer.money}.")
+    }
+
+    println()
+
+    Thread.sleep(1000)
   }
 }

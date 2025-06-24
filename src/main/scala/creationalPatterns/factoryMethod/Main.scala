@@ -8,17 +8,16 @@ but the actual credit card is created by the CreditCardFactory.
 The "createProduct()" is called a Factory Method, and it is responsible for manufacturing an object.
  */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    val factory = new CreditCardFactory()
+@main
+def main(): Unit = {
+  val factory = new CreditCardFactory()
 
-    val jacksonCard = factory.create("Jackson")
-    jacksonCard.use()
+  val jacksonCard = factory.create("Jackson")
+  jacksonCard.use()
 
-    val sophiaCard = factory.create("Sophia")
-    sophiaCard.use()
+  val sophiaCard = factory.create("Sophia")
+  sophiaCard.use()
 
-    val oliviaCard = factory.create("Olivia")
-    oliviaCard.use()
-  }
+  val oliviaCard = factory.create("Olivia")
+  oliviaCard.use()
 }

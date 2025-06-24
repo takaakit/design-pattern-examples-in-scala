@@ -9,8 +9,7 @@ Simple drawing application:
 * Erase all drawing by pressing the Clear button.
 */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    Application.launch(classOf[AppMain], args: _*)
-  }
+@main
+def main(): Unit = {
+  Application.launch(classOf[AppMain])
 }

@@ -8,8 +8,7 @@ the message displayed will change depending on whether the time is day or night.
 The internal time of the dialog advances one hour for every second of real time.
 */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    Application.launch(classOf[AppSafe], args: _*)
-  }
+@main
+def main(): Unit = {
+  Application.launch(classOf[AppSafe])
 }

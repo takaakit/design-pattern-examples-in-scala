@@ -11,8 +11,7 @@ Show a login dialog for entering a username and password. The dialog has the fol
 And change the editable properties of the elements depending on the state of the radio buttons and text fields.
 */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    Application.launch(classOf[AppLogin], args: _*)
-  }
+@main
+def main(): Unit = {
+  Application.launch(classOf[AppLogin])
 }

@@ -11,10 +11,9 @@ or display it as follows.
 ```
 */
 
-object Main {
-  def main(args: Array[String]): Unit = {
-    val p = new PrintMessageDisplay("Nice to meet you")
-    p.printWeak()
-    p.printStrong()
-  }
+@main
+def main(): Unit = {
+  val p = new PrintMessageDisplay("Nice to meet you")
+  p.printWeak()
+  p.printStrong()
 }
