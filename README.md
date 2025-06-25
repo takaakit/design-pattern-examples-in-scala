@@ -70,7 +70,8 @@ Installation
 
 **Scala Development Environment**
 * Install Java SDK **21** or higher.
-* Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/). Then, install Scala and SBT plugin in IntelliJ.
+* Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/). Then, install [Scala plugin](https://plugins.jetbrains.com/plugin/1347-scala) in IntelliJ.  
+**Note:** IntelliJ IDEA (with the Scala plugin) will automatically download and configure the required versions of the **Scala SDK** and **sbt** the first time you open this project. Simply click **Download** when the IDE prompts you, and continue once the setup completes.
 
 **Project Requirements**
 * Scala: **3.7.1**
